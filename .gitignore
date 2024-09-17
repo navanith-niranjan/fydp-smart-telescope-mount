@@ -13,7 +13,6 @@
 *.npz
 *.png
 *.pyc
-*.txt
 *.xlsx
 *.xml
 *.zip
