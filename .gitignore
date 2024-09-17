@@ -6,7 +6,6 @@
 *.idea
 *.jpeg
 *.jpg
-*.json
 *.log
 *.npy
 *.npy
@@ -25,6 +24,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+star_tracker_env/
 
 # Logs and databases #
 ######################
@@ -50,3 +50,5 @@ Thumbs.db
 *.exe
 *.o
 *.so
+
+config.py

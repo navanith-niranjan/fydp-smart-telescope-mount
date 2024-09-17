@@ -17,6 +17,7 @@ import time
 import pandas as pd
 from datetime import datetime
 from astroquery.astrometry_net import AstrometryNet
+from config import ASTROMETRY_API_KEY
 
 ast = AstrometryNet()
 print("\n\n    !!!  Be sure to input your astrometry.net API key in the astrometry_process.py file  !!!!\n\n")
@@ -24,8 +25,8 @@ print("\n\n    !!!  Be sure to input your astrometry.net API key in the astromet
 ################################
 #USER INPUT
 ################################
-ast.api_key = 'YOUR_KEY_GOES_HERE' #astrometry.net API key
-target_dir = "your/full/file/path/goes/here" #full path to the directory where the images to be processed are
+ast.api_key = ASTROMETRY_API_KEY #astrometry.net API key
+target_dir = os.path.join("..", "..", "images", "preprocessed-images") #full path to the directory where the images to be processed are
 solver_timeout = 3600 #seconds
 crash_recovery = False #set this flag to True if the tool failed mid-run to resume where you left off
 

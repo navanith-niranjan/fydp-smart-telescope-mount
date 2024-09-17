@@ -40,17 +40,13 @@ os.system('sudo apt-get --yes install libopenblas-dev')
 os.system('sudo apt-get --yes install python3-lxml')
 os.system('sudo apt-get --yes install libopencv-dev python3-opencv')
 
-# Create and activate virtual environment
-os.system('python3 -m venv star_tracker_env')
-os.system('source star_tracker_env/bin/activate')
-
-os.system('pip3 install pip --upgrade')
-os.system('pip3 install psutil')
-os.system('pip3 install imageio') #required for catalog creation
-os.system('pip3 install astropy') #required for catalog creation
-os.system('pip3 install pandas') #required for catalog creation
-os.system('pip3 install statistics')
-os.system('pip3 install astroquery') #required for astrometry verification
+os.system('sudo pip3 install pip --upgrade --break-system-packages')
+os.system('sudo pip3 install psutil --break-system-packages')
+os.system('sudo pip3 install imageio --break-system-packages') #required for catalog creation
+os.system('sudo pip3 install astropy --break-system-packages') #required for catalog creation
+os.system('sudo pip3 install pandas --break-system-packages') #required for catalog creation
+os.system('sudo pip3 install statistics --break-system-packages')
+os.system('sudo pip3 install astroquery --break-system-packages') #required for astrometry verification
 
 # Install module
 home = os.getcwd()
@@ -58,13 +54,13 @@ os.chdir('..')
 os.chdir('..')
 os.chdir('..')
 os.chdir('py_src/star_tracker')
-os.system('pip3 install .')
+os.system('sudo pip3 install . --break-system-packages')
 os.chdir(home)
 
 # Performance analysis
-os.system('pip3 --no-cache-dir install matplotlib') # otherwise you get a memory error
-os.system('pip3 install --upgrade setuptools')
-os.system('pip3 --no-cache-dir install scipy') # same
+os.system('sudo pip3 --no-cache-dir install matplotlib --break-system-packages') # otherwise you get a memory error
+os.system('sudo pip3 install --upgrade setuptools --break-system-packages')
+os.system('sudo pip3 --no-cache-dir install scipy --break-system-packages') # same
 
 
 print("\n\nInstallation complete.  Please restart the Pi!") 
