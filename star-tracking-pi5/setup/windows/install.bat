@@ -15,6 +15,7 @@ pip install matplotlib
 pip install setuptools --upgrade
 pip install scipy
 pip install pyueye
+pip install fastapi[standard]
 
 :: Install the local star_tracker module
 cd star-tracking-pi5\py_src\star_tracker
