@@ -36,8 +36,8 @@ os.chdir('..')
 os.system('python3 -m venv venv')
 
 # Call the batch script to activate the environment and install the packages
-if os.path.exists('.\star-tracking-pi5\setup\windows\install.bat'):
-    subprocess.run('.\star-tracking-pi5\setup\windows\install.bat', shell=True)
+if os.path.exists('.\\star-tracking-pi5\\setup\\windows\\install.bat'):
+    subprocess.run('.\\star-tracking-pi5\\setup\\windows\\install.bat', shell=True)
 else:
     print('install.bat file not found!')
 
