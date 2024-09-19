@@ -16,13 +16,16 @@ class ConnectionManager:
         self.client_connections.append(websocket)
         print("Client is connected!")
 
-    # When websocket connection is established between server and esp32, may not be needed if data is sent from server to esp32 via serial communication
+    # When websocket connection is established between server and ESP32, may not be needed if data is sent from server to ESP32 via serial communication
     async def connect_esp32(self, websocket: WebSocket):
         await websocket.accept()
         self.esp32_connections.append(websocket)
         print("ESP32 is connected!")
     
     async def send_data_esp32(self, data):
+        # Handle data transfer via wired connection between server and ESP32 
+
+        # For sending data when ESP32 connected to wireless Network
         for connection in self.esp32_connections:
             await connection.send_bytes(data)
 
@@ -95,7 +98,6 @@ async def get():
     return HTMLResponse(html)
 
 # For D-Pad Movement in real-time using WebSockets
-
 manager = ConnectionManager()
 
 @app.websocket("/ws/client")
@@ -110,6 +112,7 @@ async def websocket_client(websocket: WebSocket):
     except WebSocketDisconnect:
         manager.disconnect(websocket)
 
+# Needed if ESP32 is connected to wireless network
 @app.websocket("/ws/esp32")
 async def websocket_esp32(websocket: WebSocket):
     await manager.connect_esp32(websocket)
