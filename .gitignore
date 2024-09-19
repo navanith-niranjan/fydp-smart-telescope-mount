@@ -52,5 +52,6 @@ Thumbs.db
 *.so
 
 config.py
+config.h
 libraries
 __pycache__

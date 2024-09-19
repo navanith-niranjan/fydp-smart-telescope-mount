@@ -3,12 +3,7 @@
 
 #include <WiFi.h>
 #include <WebSocketsClient.h>
-
-#define WIFI_SSID "yourSSID"          // Replace with your WIFI SSID
-#define WIFI_PASSWORD "yourPASSWORD"  // Replace with your WIFI PASSWORD
-#define SERVER_ADDRESS "192.168.x.x"  // Replace with your server's IP
-#define SERVER_PORT 8000              // Replace with your server's port
-#define WEBSOCKET_PATH "/ws/esp32"    // WebSocket endpoint path
+#include "config.h"
 
 class NetworkManager {
     public:
