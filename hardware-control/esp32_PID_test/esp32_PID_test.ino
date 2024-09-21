@@ -63,10 +63,10 @@ double PIDu = 0;
 // double kd = 6;
 // double ki = 0;
 double kp = 1;
-double kd = 0.05;
+double kd = 0.03;
 double ki = 0;
-double OUTPUT_MIN = 65;
-double OUTPUT_MAX = 210;
+double OUTPUT_MIN = 40;
+double OUTPUT_MAX = 255;
 // PID will only change the speed if error is > 5
 // int PID_range = 20;
 
@@ -105,6 +105,12 @@ void loop() {
   // pos2 = posi2;
 
   // target = pos1;
+
+  // Calculate the RPM
+  rpm = (pos1 - pos_prev) / deltaT / 1024 * 60;
+  if (rpm > maxrpm){
+    maxrpm = rpm;
+  }
 
   // error
   double e = pos1 - target;
@@ -149,14 +155,19 @@ void loop() {
   eprev = e;
   prevTarget = target;
 
+  // Output to serial
+  Serial.print("Target: ");
   Serial.print(target);
-  Serial.print(" ");
+  Serial.print(" | Position: ");
   Serial.print(pos1);
-  Serial.print(" ");
+  Serial.print(" | Error: ");
   Serial.print(e);
-  Serial.print(" ");
+  Serial.print(" | Power: ");
   Serial.print(pwr);
-  Serial.println();
+  Serial.print(" | RPM: ");
+  Serial.print(rpm);
+  Serial.print(" | Max RPM: ");
+  Serial.println(maxrpm);
 
   if (Serial.available() > 0) {
     // Read the input from the serial monitor
