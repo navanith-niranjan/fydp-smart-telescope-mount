@@ -29,8 +29,8 @@ class ConnectionManager:
         loop = asyncio.get_event_loop()
 
         def write_to_serial(data):
-            port = 'COM3'
-            baudrate = 115200      # Replace with your ESP32's baud rate
+            port = 'COM5'
+            baudrate = 115200 # Replace with your ESP32's baud rate
             try:
                 with serial.Serial(port, baudrate, timeout=1) as ser:
                     ser.write(data)
@@ -40,7 +40,6 @@ class ConnectionManager:
 
         # Run the blocking serial write operation in an executor
         await loop.run_in_executor(None, write_to_serial, data)
-
 
         # For sending data when ESP32 connected to wireless Network
         # for connection in self.esp32_connections:
@@ -60,7 +59,7 @@ html = """
     <head>
         <title>TEST ENVIRONMENT</title>
     </head>
-    <body>
+    <body style="background-color: #FF474C;">
         <h1>CLIENT</h1>
         <div class="dpad">
             <button class="dpad-button" onclick="sendCommand('up')">UP</button>
