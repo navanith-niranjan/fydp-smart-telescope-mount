@@ -63,8 +63,8 @@ while usr_in == '':
         capture_name = 'pi_test_'+str(capture_number)+'.jpg'
                 
     if usr_in == '':
-        picam2.capture(os.path.join(os.getcwd(),capture_name))
+        picam2.capture_file(os.path.join(os.getcwd(),capture_name))
         print(capture_name+' saved!\n')
 
 # Release camera resources
-
+picam2.stop()
