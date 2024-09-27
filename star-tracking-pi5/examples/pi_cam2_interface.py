@@ -23,6 +23,10 @@ from time import sleep
 pi_cam = "v2" # v1, v2, hq
 image_extension = ".jpg"
 
+# Set exposure time and ISO-like value (AnalogueGain)
+exposure_time = 1000000  # 1 second exposure (in microseconds)
+analogue_gain = 10.0  # Higher value for higher sensitivity (acts like ISO)
+
 ################################
 # MAIN CODE
 ################################
@@ -43,6 +47,9 @@ if pi_cam == "hq":
 # Configure the camera settings
 config = picam2.create_still_configuration(main={"size": (selected_cam_res[0], selected_cam_res[1])})
 picam2.configure(config)
+
+# Set manual exposure time and ISO-like gain
+picam2.set_controls({"ExposureTime": exposure_time, "AnalogueGain": analogue_gain})
 
 # Start the camera
 picam2.start()
