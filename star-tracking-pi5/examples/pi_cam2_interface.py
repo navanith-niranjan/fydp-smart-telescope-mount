@@ -24,8 +24,8 @@ pi_cam = "v2" # v1, v2, hq
 image_extension = ".jpg"
 
 # Set exposure time and ISO-like value (AnalogueGain)
-exposure_time = 1000000  # 1 second exposure (in microseconds)
-analogue_gain = 10.0  # Higher value for higher sensitivity (acts like ISO)
+exposure_time = 15000000  # 1 second exposure (in microseconds)
+analogue_gain = 4.0  # Higher value for higher sensitivity (acts like ISO)
 
 ################################
 # MAIN CODE
